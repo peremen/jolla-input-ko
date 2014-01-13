@@ -1,11 +1,11 @@
 Name: jolla-input-ko
-Version: 0.01
+Version: 0.02
 Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: LGPLv2
 Source: %{name}-%{version}.tar.gz
-URL:    http://example.com
-Requires:   libhangul-qml-plugin
+BuildArch: noarch
+URL:    https://github.com/peremen/jolla-input-ko
 Requires:   jolla-keyboard
 #Requires:   jolla-xt9
 

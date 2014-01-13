@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import com.jolla.keyboard 1.0
-import name.peremen.libhangul 1.0
 import ".."
 import "../.."
 
@@ -12,11 +11,7 @@ InputHandler {
     Component.onCompleted: init()
     
     function init() {
-      //hangul_ic.selectKeyboard("2")
-    }
-    
-    HangulInputContext {
-      id: hangul_ic
+        Keymaps.reset()
     }
     
     function handleKeyClick() {
@@ -25,10 +20,10 @@ InputHandler {
 
         if (pressedKey.key === Qt.Key_Backspace) {
             // If backspace is not handled by libhangul, forward to default handler
-            handled = hangul_ic.backspace()
+            handled = Keymaps.backspace()
             if (handled) {
                 updateString()
-                if (hangul_ic.isEmpty()) {
+                if (Keymaps.isEmpty()) {
                     // Needs workaround: setting empty preedit string does not invalidate it
                     MInputMethodQuick.sendCommit("")
                 }                    
@@ -44,7 +39,7 @@ InputHandler {
                 flush()
                 return false
             }
-            handled = hangul_ic.process(Keymaps.ko_2set_qwerty_map[pressedKey.text].charCodeAt(0))
+            handled = Keymaps.process(Keymaps.ko_2set_qwerty_map[pressedKey.text].charCodeAt(0))
             updateString()
             // No case in Hangul: always reset shift status
             if (keyboard.shiftState !== ShiftState.LockedShift) {
@@ -56,7 +51,7 @@ InputHandler {
     
     function flush() {
         var cstr = ""
-        cstr = hangul_ic.flush()
+        cstr = Keymaps.flush()
         if (cstr.length > 0) {
             MInputMethodQuick.sendCommit(cstr)
         }
@@ -65,11 +60,12 @@ InputHandler {
     function updateString() {
         var cstr = ""
         var pstr = ""
-        cstr = hangul_ic.getCommitString()
-        pstr = hangul_ic.getPreeditString()
+        cstr = Keymaps.getCommitString()
+        pstr = Keymaps.getPreeditString()
         
         if (cstr.length > 0) {
             MInputMethodQuick.sendCommit(cstr)
+            Keymaps.flushCommitString()
         }
         
         if (pstr.length > 0) {
@@ -78,7 +74,7 @@ InputHandler {
     }
      
     function reset() {
-        hangul_ic.reset()
+        Keymaps.reset()
     }
     
 }
