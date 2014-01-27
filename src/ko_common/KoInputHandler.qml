@@ -4,14 +4,14 @@ import com.jolla.keyboard 1.0
 import ".."
 import "../.."
 
-import "keymaps.js" as Keymaps
+import "2set_handler.js" as Ko2SetHandler
 
 
 InputHandler { 
     Component.onCompleted: init()
     
     function init() {
-        Keymaps.reset()
+        Ko2SetHandler.reset()
     }
     
     function handleKeyClick() {
@@ -20,10 +20,10 @@ InputHandler {
 
         if (pressedKey.key === Qt.Key_Backspace) {
             // If backspace is not handled by libhangul, forward to default handler
-            handled = Keymaps.backspace()
+            handled = Ko2SetHandler.backspace()
             if (handled) {
                 updateString()
-                if (Keymaps.isEmpty()) {
+                if (Ko2SetHandler.isEmpty()) {
                     // Needs workaround: setting empty preedit string does not invalidate it
                     MInputMethodQuick.sendCommit("")
                 }                    
@@ -35,11 +35,11 @@ InputHandler {
                 keyboard.shiftState = ShiftState.NoShift
             }
         } else if (pressedKey.text.length !== 0) {
-            if (!Keymaps.ko_2set_qwerty_map.hasOwnProperty(pressedKey.text)) {
+            if (!Ko2SetHandler.ko_2set_qwerty_map.hasOwnProperty(pressedKey.text)) {
                 flush()
                 return false
             }
-            handled = Keymaps.process(Keymaps.ko_2set_qwerty_map[pressedKey.text].charCodeAt(0))
+            handled = Ko2SetHandler.process(Ko2SetHandler.ko_2set_qwerty_map[pressedKey.text].charCodeAt(0))
             updateString()
             // No case in Hangul: always reset shift status
             if (keyboard.shiftState !== ShiftState.LockedShift) {
@@ -51,7 +51,7 @@ InputHandler {
     
     function flush() {
         var cstr = ""
-        cstr = Keymaps.flush()
+        cstr = Ko2SetHandler.flush()
         if (cstr.length > 0) {
             MInputMethodQuick.sendCommit(cstr)
         }
@@ -60,12 +60,12 @@ InputHandler {
     function updateString() {
         var cstr = ""
         var pstr = ""
-        cstr = Keymaps.getCommitString()
-        pstr = Keymaps.getPreeditString()
+        cstr = Ko2SetHandler.getCommitString()
+        pstr = Ko2SetHandler.getPreeditString()
         
         if (cstr.length > 0) {
             MInputMethodQuick.sendCommit(cstr)
-            Keymaps.flushCommitString()
+            Ko2SetHandler.flushCommitString()
         }
         
         if (pstr.length > 0) {
@@ -74,7 +74,7 @@ InputHandler {
     }
      
     function reset() {
-        Keymaps.reset()
+        Ko2SetHandler.reset()
     }
     
 }
