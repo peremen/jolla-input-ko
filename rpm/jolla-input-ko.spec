@@ -31,6 +31,6 @@ rm -rf %{buildroot}
 
 %files
 /usr/share/maliit/plugins/com/jolla/layouts/ko_2set.qml
-/usr/share/maliit/plugins/com/jolla/layouts/ko_2set.conf
+/usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/keymaps.js
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
