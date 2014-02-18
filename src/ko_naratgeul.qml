@@ -63,22 +63,22 @@ KeyboardLayout {
             }
         }
         CharacterKey {
-            caption: "ㄱ"; symView: "1"; symView2: "€"; accents: "1"
+            caption: "ㄱ"; captionShifted: "1"; symView: "("; symView2: "{"; 
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㄴ"; symView: "2"; symView2: "£"; accents: "2"
+            caption: "ㄴ"; captionShifted: "2"; symView: ")"; symView2: "}"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅏㅓ"; symView: "3"; symView2: "$"; accents: "3"
+            caption: "ㅏㅓ"; captionShifted: "3"; symView: "!"; symView2: "$"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         SymbolKey {
-            caption: keyboard.inSymView ? "한글" : "?123" // symbols/hangul
+            caption: keyboard.inSymView ? "한글" : "기호" // symbols/hangul
             width: main.width / 5
             height: geometry.keyHeightPortrait
             separator: false
@@ -86,23 +86,22 @@ KeyboardLayout {
     }
 
     KeyboardRow {
-        CharacterKey {
-            caption: ","; captionShifted: ","; symView: ","; symView2: ","
+        ContextAwareCommaKey {
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㄹ"; symView: "4"; symView2: "`"; accents: "4"
+            caption: "ㄹ"; captionShifted: "4"; symView: "<"; symView2: "["
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅁ"; symView: "5"; symView2: "^"; accents: "5"
+            caption: "ㅁ"; captionShifted: "5"; symView: ">"; symView2: "]"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅗㅜ"; symView: "6"; symView2: "|"; accents: "6"
+            caption: "ㅗㅜ"; captionShifted: "6"; symView: "?"; symView2: "₩"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
@@ -120,17 +119,17 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅅ"; symView: "7"; symView2: "«"; accents: "7"
+            caption: "ㅅ"; captionShifted: "7"; symView: "#"; symView2: "^"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅇ"; symView: "8"; symView2: "»"; accents: "8"
+            caption: "ㅇ"; captionShifted: "8"; symView: "+"; symView2: "="
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅣ"; symView: "9"; symView2: "\""; accents: "9"
+            caption: "ㅣ"; captionShifted: "9"; symView: "-"; symView2: "_"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
@@ -147,17 +146,17 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "획추가"; symView: "*"; symView2: "«"; accents: "*"
+            caption: "획추가"; captionShifted: "*"; symView: "@"; symView2: "\""
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey {
-            caption: "ㅡ"; symView: "0"; symView2: "»"; accents: "0" 
+            caption: "ㅡ"; captionShifted: "0"; symView: "&"; symView2: "~" 
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }
         CharacterKey { 
-            caption: "쌍자음"; symView: "#"; symView2: "\""; accents: "#"
+            caption: "쌍자음"; captionShifted: "#"; symView: ":"; symView2: ";"
             width: main.width / 5
             height: geometry.keyHeightPortrait
         }

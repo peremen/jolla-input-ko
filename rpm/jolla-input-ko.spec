@@ -1,5 +1,5 @@
 Name: jolla-input-ko
-Version: 0.02
+Version: 0.03
 Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: LGPLv2
@@ -31,6 +31,9 @@ rm -rf %{buildroot}
 
 %files
 /usr/share/maliit/plugins/com/jolla/layouts/ko_2set.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_naratgeul.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js

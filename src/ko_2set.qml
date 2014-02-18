@@ -85,14 +85,8 @@ KeyboardLayout {
         SymbolKey {
             caption: keyboard.inSymView ? "한글" : "?123" // symbols/hangul
         }
-
-        CharacterKey {
-            caption: ","
-            captionShifted: ","
-            symView: ","
-            symView2: ","
-            width: punctuationKeyWidth
-        }
+        
+        ContextAwareCommaKey {}
         SpacebarKey {
             fixedWidth: true
         }

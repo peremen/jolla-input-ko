@@ -31,6 +31,7 @@ function backspace() {
     if (inputQ[cur_q_idx]) {
         inputQ[cur_q_idx] = 0;
         cleared = true;
+        if (cur_q_idx == 0) return true;
     }
     for (var i = cur_q_idx; i >= 0; i--) {
         if (inputQ[i]) {
@@ -106,7 +107,7 @@ function merge_jong(a, b) {
         } else if (a == 3) { // ㄵ, ㄶ
             if (b == 13) return Array(5, -1);
             else if (b == 19) return Array(6, -1);
-            else return Array(5, b - 1);
+            else return Array(4, b - 1);
         } else if (a == 6) { // ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ
             if (b == 1) return Array(9, -1);
             else if (b == 7) return Array(10, -1);

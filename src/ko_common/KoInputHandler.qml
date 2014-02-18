@@ -26,7 +26,11 @@ InputHandler {
                 if (Ko2SetHandler.isEmpty()) {
                     // Needs workaround: setting empty preedit string does not invalidate it
                     MInputMethodQuick.sendCommit("")
-                }                    
+                }
+            } else {
+                if (Ko2SetHandler.getPreeditString().length > 0) {
+                    flush()
+                }
             }
         } else if (pressedKey.key === Qt.Key_Space || pressedKey.key === Qt.Key_Return) {
             // Send both commit and preedit string 
@@ -54,7 +58,10 @@ InputHandler {
         cstr = Ko2SetHandler.flush()
         if (cstr.length > 0) {
             MInputMethodQuick.sendCommit(cstr)
+        } else {
+            MInputMethodQuick.sendCommit("")
         }
+        MInputMethodQuick.sendPreedit("")
     }
     
     function updateString() {

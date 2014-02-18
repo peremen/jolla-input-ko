@@ -77,6 +77,7 @@ function backspace() {
     }
     if (ohiQ[0]) {
         ohiQ[0]=0;
+        pstr = "";
         return true;
     }
     return false;
