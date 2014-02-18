@@ -1,10 +1,13 @@
-jolla-input-ko
+Dotdanbae keyboard
 ==============
 
 ## Introduction
-Korean input method for Sailfish OS. Keyboard interface is based on [Japanese
-IME](https://github.com/BeholdMyGlory/jolla-anthy-jp), Korean input automata for
-2-set keyboard is based on [Online Hangul Input](http://ohi.kr/).
+Dotdanbae is Korean input method for Sailfish OS. Keyboard interface is based on
+[Japanese IME](https://github.com/BeholdMyGlory/jolla-anthy-jp), Korean input
+automata for 2-set keyboard is based on [Online Hangul Input](http://ohi.kr/).
+Dotdanbae supports multiple layouts.
+
+The name comes from Korean word for sailboat.
 
 ## Supported layouts
 * 2-set layout

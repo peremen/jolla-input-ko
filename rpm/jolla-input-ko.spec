@@ -1,16 +1,19 @@
-Name: jolla-input-ko
-Version: 0.03
+Name: dotdanbae
+Version: 0.1
 Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
-License: LGPLv2
+License: GPLv2+
 Source: %{name}-%{version}.tar.gz
 BuildArch: noarch
 URL:    https://github.com/peremen/jolla-input-ko
 Requires:   jolla-keyboard
-#Requires:   jolla-xt9
+Requires:   jolla-xt9
 
 %description
-Korean keyboard layout for Sailfish OS.
+Dotdanbae is Korean input method for Sailfish OS.
+This app provides 2-set, Naratgeul layout.
+
+The name stands for sailboat in Korean.
 
 %define debug_package %{nil}
 
@@ -25,6 +28,9 @@ Korean keyboard layout for Sailfish OS.
 #make install DESTDIR=%{buildroot}
 mkdir -p %{buildroot}/usr/share/maliit/plugins/com/jolla/layouts/
 cp -r src/ko* %{buildroot}/usr/share/maliit/plugins/com/jolla/layouts/
+chmod -x %{buildroot}/usr/share/maliit/plugins/com/jolla/layouts/*.qml
+chmod -x %{buildroot}/usr/share/maliit/plugins/com/jolla/layouts/ko.conf
+chmod -x %{buildroot}/usr/share/maliit/plugins/com/jolla/layouts/ko_common/*.*
 
 %clean
 rm -rf %{buildroot}
