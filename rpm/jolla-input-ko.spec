@@ -1,5 +1,5 @@
 Name: dotdanbae
-Version: 0.1
+Version: 0.2
 Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
@@ -43,3 +43,19 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
+
+%changelog
+* Sat Oct 25 2014 Park Shinjo <me@peremen.name> 0.1
+- Fix layout switching bug.
+
+* Wed Feb 19 2014 Park Shinjo <me@peremen.name> 0.1
+- Added Naratgeul layout.
+- Bumped version number and changed name.
+- Fixed bug on trailing syllables in 2-set layout.
+
+* Tue Jan 14 2014 Park Shinjo <me@peremen.name> 0.02
+- Rewrite to use ohi instead of libhangul.
+- Removes usage of any native code.
+
+* Mon Jan 13 2014 Park Shinjo <me@peremen.name> 0.01
+- Initial release based on libhangul.

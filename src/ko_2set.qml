@@ -3,43 +3,15 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "ko_common"
 import ".."
 
 KeyboardLayout {
-    type: "korean"
-    
-    KoInputHandler {
-        id: koInputHandler
-    }
-    
-    Component.onCompleted: init()
-    
-    Connections {
-        target: keyboard
-        onInputHandlerChanged: handlerChanged()
-    }
-    
-    function init() {
-        // force onInputHandlerChanged signal by
-        // making sure that the input handler was not
-        // previously pasteInputHandler
-        if (keyboard.allowLayoutChanges) {
-            var oldHandler = keyboard.inputHandler
-            keyboard.inputHandler = xt9Handler.item
-            oldHandler.active = false
-            keyboard.inputHandler.active = true
-        }
-    }
-    
-    function handlerChanged() {
-        if (keyboard.allowLayoutChanges && keyboard.inputHandler == pasteInputHandler &&
-                canvas.layoutRow.layout != null && canvas.layoutRow.layout.type == type) {
-            var oldHandler = keyboard.inputHandler
-            keyboard.inputHandler = koInputHandler
-            oldHandler.active = false
-            koInputHandler.active = true
-        }
+    // enables possibility to use own InputHandler,
+    // disables autocaps and text prediction
+    type: "custom"
+    Component.onCompleted: {
+        // disable autocaps
+        keyboard.autocaps = false
     }
     
     KeyboardRow {
