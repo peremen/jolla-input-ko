@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import com.meego.maliitquick 1.0
 import Sailfish.Silica 1.0
 import com.jolla.keyboard 1.0
 import ".."
@@ -10,6 +11,30 @@ import "2set_handler.js" as Ko2SetHandler
 InputHandler { 
     Component.onCompleted: init()
     
+    Component {
+        id: pasteComponent
+        PasteButton {
+            onClicked: {
+                flush()
+                MInputMethodQuick.sendCommit(Clipboard.text)
+                keyboard.expandedPaste = false
+            }
+        }
+    }
+    
+    Component {
+        id: verticalPasteComponent
+        PasteButton {
+            width: parent.width
+            height: geometry.keyHeightLandscape
+            
+            onClicked: {
+                flush()
+                MInputMethodQuick.sendCommit(Clipboard.text)
+            }
+        }
+    }
+            
     function init() {
         Ko2SetHandler.reset()
     }
@@ -82,6 +107,82 @@ InputHandler {
      
     function reset() {
         Ko2SetHandler.reset()
+    }
+    
+    topItem: Component {
+        TopItem {
+            SilicaListView {
+                id: predictionList
+                
+                orientation: ListView.Horizontal
+                anchors.fill: parent
+                header: pasteComponent
+                boundsBehavior: !keyboard.expandedPaste && Clipboard.hasText ? Flickable.DragOverBounds : Flickable.StopAtBounds
+                
+                onDraggingChanged: {
+                    if (!dragging && !keyboard.expandedPaste && contentX < -(headerItem.width + Theme.paddingLarge)) {
+                        keyboard.expandedPaste = true
+                        positionViewAtBeginning()
+                    }
+                }
+                
+                Connections {
+                    target: Clipboard
+                    onTextChanged: {
+                        if (Clipboard.hasText) {
+                            // need to have updated width before repositioning view
+                            positionerTimer.restart()
+                        }
+                    }
+                }
+                
+                Timer {
+                    id: positionerTimer
+                    interval: 10
+                    onTriggered: predictionList.positionViewAtBeginning()
+                }
+            }
+        }
+    }
+    
+    verticalItem: Component {
+        Item {
+            id: verticalContainer
+            
+            SilicaListView {
+                id: verticalList
+                
+                anchors.fill: parent
+                clip: true
+                header: Component {
+                    PasteButtonVertical {
+                        visible: Clipboard.hasText
+                        width: verticalList.width
+                        height: visible ? geometry.keyHeightLandscape : 0
+                        popupParent: verticalContainer
+                        popupAnchor: 2 // center
+                        
+                        onClicked: {
+                            flush()
+                            MInputMethodQuick.sendCommit(Clipboard.text)
+                        }
+                    }
+                }
+                
+                Connections {
+                    target: Clipboard
+                    onTextChanged: {
+                        verticalList.positionViewAtBeginning()
+                        clipboardChange.restart()
+                    }
+                }
+                
+                Timer {
+                    id: clipboardChange
+                    interval: 1000
+                }
+            }
+        }
     }
     
 }
