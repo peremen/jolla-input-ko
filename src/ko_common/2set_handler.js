@@ -1,9 +1,30 @@
 /*
- * This file is part of Dotdanbae package.
- * This program includes part of ohi.
- * Original Author : Ho-Seok Ee <hsee@korea.ac.kr>
- * Modified by Park Shinjo <me@peremen.name>
+    This file is part of Dotdanbae.
+    Copyright (C) 2014- Shinjo Park <me@peremen.name>. All rights reserved.
 
+    Dotdanbae is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Dotdanbae is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Dotdanbae. If not, see <http://www.gnu.org/licenses/>.
+
+    This file contains code from ohi, original copyright notice is following.
+ */
+
+/*
+ * Author : Ho-Seok Ee <hsee@korea.ac.kr>
+ * Release: 2006/07/14
+ * Update : 2011/01/22
+
+ Copyright (C) Ho-Seok Ee <hsee@korea.ac.kr>. All rights reserved.
+ 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License as
   published by the Free Software Foundation; either version 2 of
