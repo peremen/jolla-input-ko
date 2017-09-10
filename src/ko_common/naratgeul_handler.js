@@ -35,8 +35,8 @@ var key_class_map = {
 };
 
 var key_chars = [[0], [1], [3], [20, 22], [6], [7], [24, 26], [10], [12], [29], [0], [28], [0]];
-var transform_addstroke = [0, 16, 02, 04, 17, 05, 06, 08, 18, 09, 13, 11, 19, 15, 14, 10, 01, 03, 07, 12, 21, 20, 23, 22, 25, 24, 27, 26, 29, 28];
-var transform_double = [0, 02, 01, 03, 05, 04, 06, 07, 09, 08, 11, 10, 12, 14, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+var transform_addstroke = [0, 16, 2, 4, 17, 5, 6, 8, 18, 9, 13, 11, 19, 15, 14, 10, 1, 3, 7, 12, 21, 20, 23, 22, 25, 24, 27, 26, 29, 28];
+var transform_double = [0, 2, 1, 3, 5, 4, 6, 7, 9, 8, 11, 10, 12, 14, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
 
 var cstr = ""; // Commit string
 
@@ -155,7 +155,7 @@ function merge_q() {
         var jung = merge_jung(inputQ[i * 6 + 1], inputQ[i * 6 + 2], inputQ[i * 6 + 3]);
         var jong = merge_jong(inputQ[i * 6 + 4], inputQ[i * 6 + 5]);
         //addlogmessage(cho + "," + jung + "," + jong);
-        
+
         if (cho == -1 && jung == -1 && jong[0] <= 0) return str;
         if (cho > -1 && jung > -1 && jong[0] > -1) { // Has both cho and jung
             str += String.fromCharCode(0xAC00 + cho * 588 + jung * 28 + jong[0]);
@@ -342,7 +342,7 @@ function process(key) {
             // Only allow ㅘ, ㅝ + ㅣ
             if (key_chars[key][0] == 29) {
                 // 24, 20 26, 22
-                if ((inputQ[cur_q_idx - 1] == 24 && inputQ[cur_q_idx] == 20) || 
+                if ((inputQ[cur_q_idx - 1] == 24 && inputQ[cur_q_idx] == 20) ||
                     (inputQ[cur_q_idx - 1] == 26 && inputQ[cur_q_idx] == 22)) {
                     cur_q_idx++;
                     inputQ[cur_q_idx] = 29;
