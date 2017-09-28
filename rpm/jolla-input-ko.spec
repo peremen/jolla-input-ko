@@ -1,6 +1,6 @@
 Name: dotdanbae
 Version: 0.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
 Source: %{name}-%{version}.tar.gz
@@ -45,6 +45,9 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
 
 %changelog
+* Sun Sep 10 2017 Shinjo Park <me@peremen.name> 0.3-2
+- Fix bug on Naratgeul handler
+
 * Sun May 10 2015 Park Shinjo <me@peremen.name> 0.3
 - Implement keyboard split.
 - Fix Naratgeul problem for 1.1.4.29.
