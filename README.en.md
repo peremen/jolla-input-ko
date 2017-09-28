@@ -5,7 +5,8 @@ Dotdanbae keyboard
 Dotdanbae is Korean input method for Sailfish OS. Keyboard interface is based on
 [Japanese IME](https://github.com/BeholdMyGlory/jolla-anthy-jp), Korean input
 automata for 2-set keyboard is based on [Online Hangul Input](http://ohi.kr/).
-Dotdanbae supports multiple layouts.
+Cheonjiin input uses [Hangul.js](https://github.com/e-/Hangul.js) for assembling
+the letters. Dotdanbae supports multiple layouts.
 
 The name comes from Korean word for sailboat.
 
@@ -35,3 +36,4 @@ External components used in this program is licensed as following:
 
 * Sailfish keyboard layout code: Modified BSD License
 * Online Hangul Input: GNU General Public License version 2.0 and later
+* Hangul.js library: MIT

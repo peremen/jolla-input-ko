@@ -3,9 +3,10 @@
 
 ## 소개
 돛단배 키보드는 Sailfish OS용 한글 입력기입니다. Sailfish OS에 키보드를 추가하는
-방법은 [일본어 입력기](https://github.com/BeholdMyGlory/jolla-anthy-jp)를 기반으로 
+방법은 [일본어 입력기](https://github.com/BeholdMyGlory/jolla-anthy-jp)를 기반으로
 하며, 두벌식 키보드 오토마타는 [온라인 한글 입력기](http://ohi.kr/)를 기반으로
-합니다. 현재 한글 두벌식, 나랏글 자판을 지원합니다.
+합니다. 천지인 키보드는 자모를 조합하기 위해서 [Hangul.js](https://github.com/e-/Hangul.js)를
+이용합니다. 현재 한글 두벌식, 나랏글 자판을 지원합니다.
 
 ## 지원하는 입력 방식
 * 한글 두벌식
@@ -31,4 +32,4 @@ Sailfish OS 1.0.3.8 이상을 필요로 합니다.
 
 * Sailfish 키보드 레이아웃 코드: Modified BSD License
 * 두벌식 입력기 오토마타 코드: GNU General Public License 버전 2.0 및 그 이후
-
+* Hangul.js: MIT
