@@ -38,11 +38,17 @@ rm -rf %{buildroot}
 %files
 /usr/share/maliit/plugins/com/jolla/layouts/ko_2set.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_naratgeul.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonjiinInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/cheonjiin_handler.js
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
 * Sun Sep 10 2017 Shinjo Park <me@peremen.name> 0.3-2
