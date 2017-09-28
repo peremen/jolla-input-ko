@@ -1,6 +1,6 @@
 Name: dotdanbae
-Version: 0.3
-Release: 2%{?dist}
+Version: 0.4
+Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
 Source: %{name}-%{version}.tar.gz
