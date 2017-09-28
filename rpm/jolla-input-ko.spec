@@ -50,7 +50,16 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/cheonjiin_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
+%post
+systemctl --user restart maliit-server
+
+%postun
+systemctl --user restart maliit-server
+
 %changelog
+* Fri Sep 29 2017 Topias Vainio <toxip@disroot.org> 0.4
+- Added cheonjiin layout
+
 * Sun Sep 10 2017 Shinjo Park <me@peremen.name> 0.3-2
 - Fix bug on Naratgeul handler
 
