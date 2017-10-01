@@ -1,4 +1,7 @@
 /*
+    This is an extension to Dotdanbae
+    Copyright (C) 2017- Topias Vainio <toxip@disroot.org>.  All rights reserved
+
     This file is part of Dotdanbae.
     Copyright (C) 2014- Shinjo Park <me@peremen.name>. All rights reserved.
 
