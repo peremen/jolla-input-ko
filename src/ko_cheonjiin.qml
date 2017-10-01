@@ -43,7 +43,7 @@ KeyboardLayout {
         }
         KoTenKey { caption: "ㄱㅋ"; captionShifted: "4"; symView: "<"; symView2: "[" }
         KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
-        KoTenKey { caption: "ㄷㅌ"; captionShifted: "6"; symView: "\\"; symView2: "₩" }
+        KoTenKey { caption: "ㄷㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
