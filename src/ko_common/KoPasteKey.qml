@@ -26,15 +26,12 @@ import "../.."
 
 PasteButtonBase {
     id: pasteContainer
-    property bool plusMode: false
-    property bool plusDouble: false
     property int separator: SeparatorState.AutomaticSeparator
     property bool implicitSeparator: true // set by layouting
 
     enabled: Clipboard.hasText
     height: portraitMode == false ? geometry.keyHeightLandscape
                                   : geometry.keyHeightPortrait
-    width: plusMode ? main.width / 8 : main.width / (plusDouble ? 4 : 5)
 
     KeySeparator {
         visible: (separator === SeparatorState.AutomaticSeparator && implicitSeparator)

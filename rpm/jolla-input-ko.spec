@@ -45,6 +45,7 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonjiinInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoPasteKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
@@ -54,6 +55,7 @@ rm -rf %{buildroot}
 %changelog
 * Sun Oct 15 2017 Topias Vainio <toxip@disroot.org> 0.5
 - Added cheonjiin plus layout
+- Improved paste key in cheonjiin and naratgeul
 
 * Sun Oct 15 2017 Shinjo Park <me@peremen.name> 0.4-2
 - Revise keys of Naratgeul layout

@@ -62,7 +62,7 @@ KeyboardLayout {
         // disable autocaps
         keyboard.autocaps = false
     }
-    
+
     height: portraitMode == false ? geometry.keyHeightLandscape * 4
                      :  geometry.keyHeightPortrait * 4
 
@@ -74,18 +74,8 @@ KeyboardLayout {
         KoTenKey { caption: "ㄱ"; captionShifted: "1"; symView: "("; symView2: "{"; }
         KoTenKey { caption: "ㄴ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { caption: "ㅏㅓ"; captionShifted: "3"; symView: "!"; symView2: "$" }
-        KoTenKey {
-            height: geometry.keyHeightPortrait
-            enabled: Silica.Clipboard.hasText
-            opacity: enabled ? (pressed ? 0.6 : 1.0)
-                             : 0.3
-            key: Qt.Key_Paste
-            
-            Image {
-                anchors.centerIn: parent
-                source: "image://theme/icon-m-clipboard?"
-                        + (parent.pressed ? Silica.Theme.highlightColor : Silica.Theme.primaryColor)
-            }
+        KoPasteKey {
+            width: main.width / 5
         }
     }
 

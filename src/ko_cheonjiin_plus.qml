@@ -80,7 +80,6 @@ KeyboardLayout {
         KoPasteKey {
             plusMode: true
             popupAnchor: 1
-            separator: SeparatorState.HiddenSeparator
             width: main.width / 8
         }
     }
