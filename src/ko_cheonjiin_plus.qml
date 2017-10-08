@@ -77,20 +77,11 @@ KeyboardLayout {
         KoTenKey { plusDouble: true; caption: "ㅣ"; captionShifted: "1"; symView: "("; symView2: "{" }
         KoTenKey { plusDouble: true; caption: "ㆍ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { plusDouble: true; caption: "ㅡ"; captionShifted: "3"; symView: "/"; symView2: "$" }
-        KoTenKey {
+        KoPasteKey {
             plusMode: true
-            enabled: Silica.Clipboard.hasText
-            separator: SeparatorState.VisibleSeparator
-            showPopper: false
-            opacity: enabled ? (pressed ? 0.6 : 1.0)
-            : 0.3
-            key: Qt.Key_Paste
-
-            Image {
-                anchors.centerIn: parent
-                source: "image://theme/icon-m-clipboard?"
-                + (parent.pressed ? Silica.Theme.highlightColor : Silica.Theme.primaryColor)
-            }
+            popupAnchor: 1
+            separator: SeparatorState.HiddenSeparator
+            width: main.width / 8
         }
     }
 
