@@ -63,7 +63,6 @@ FunctionKey {
                :  (direction === "down") ? Qt.Key_Down
                :  (direction === "left") ? Qt.Key_Left
                :  (direction === "right") ? Qt.Key_Right : Qt.Key_Unknown)
-    implicitWidth: main.width / 5
     background.visible: false
 
     onPressedChanged: {

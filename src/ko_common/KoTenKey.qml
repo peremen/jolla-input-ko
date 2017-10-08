@@ -20,11 +20,13 @@
  */
 
 import QtQuick 2.0
+import com.jolla.keyboard 1.0
 import "../.."
 
 CharacterKey {
     // For cheonjiin plus layout with separate buttons for jaum
     property bool plusMode: false
     height: geometry.keyHeightPortrait
+    separator: SeparatorState.VisibleSeparator
     implicitWidth: plusMode ? main.width / 10 : main.width / 5
 }
