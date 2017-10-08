@@ -78,7 +78,6 @@ KeyboardLayout {
         KoTenKey { plusDouble: true; caption: "ㆍ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { plusDouble: true; caption: "ㅡ"; captionShifted: "3"; symView: "/"; symView2: "$" }
         KoPasteKey {
-            plusMode: true
             popupAnchor: 1
             width: main.width / 8
         }

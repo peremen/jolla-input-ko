@@ -26,7 +26,7 @@ import "../.."
 
 PasteButtonBase {
     id: pasteContainer
-    property int separator: SeparatorState.AutomaticSeparator
+    property int separator: SeparatorState.HiddenSeparator
     property bool implicitSeparator: true // set by layouting
 
     enabled: Clipboard.hasText
