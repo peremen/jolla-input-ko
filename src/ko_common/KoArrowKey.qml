@@ -63,6 +63,8 @@ FunctionKey {
                :  (direction === "down") ? Qt.Key_Down
                :  (direction === "left") ? Qt.Key_Left
                :  (direction === "right") ? Qt.Key_Right : Qt.Key_Unknown)
+    implicitHeight: main.portraitMode == false ? geometry.keyHeightLandscape
+                     :  geometry.keyHeightPortrait
     background.visible: false
 
     onPressedChanged: {
