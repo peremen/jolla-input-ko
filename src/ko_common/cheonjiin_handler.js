@@ -28,12 +28,15 @@ var prevKey = "";
 // Commit string
 var cstr = "";
 
-var ko_cheonjiin_map = {
-    'ㅣ': 'ㅣ', 'ㆍ': 'ㆍ', 'ㅡ': 'ㅡ',
-    'ㄱㅋ': 'ㄱ', 'ㄴㄹ': 'ㄴ', 'ㄷㅌ': 'ㄷ',
-    'ㅂㅍ': 'ㅂ', 'ㅅㅎ': 'ㅅ', 'ㅈㅊ': 'ㅈ',
-    '.,': '.', 'ㅇㅁ': 'ㅇ', '?!': '?'
-};
+var ko_cheonjiin_arr = [
+    'ㅣ', 'ㆍ', 'ㅡ',
+    'ㄱㅋ', 'ㄴㄹ', 'ㄷㅌ',
+    'ㅂㅍ', 'ㅅㅎ', 'ㅈㅊ',
+    '.,', 'ㅇㅁ', '?!',
+    'ㄱ', 'ㅋ', 'ㄲ', 'ㄴ', 'ㄹ', 'ㄷ', 'ㅌ', 'ㄸ',
+    'ㅂ', 'ㅍ', 'ㅃ', 'ㅅ', 'ㅎ', 'ㅆ', 'ㅈ', 'ㅊ', 'ㅉ',
+    '.', ',', 'ㅇ', 'ㅁ', '?', '!'
+];
 
 var merge_map = {
     'ㅣㆍ': 'ㅏ', 'ㅡㅣ': 'ㅢ', 'ㆍㅣ': 'ㅓ', 'ㆍㅡ': 'ㅗ', 'ㅡㆍ': 'ㅜ', 'ㆍㆍ': '：',
@@ -43,29 +46,60 @@ var merge_map = {
     'ㅏㅣ': 'ㅐ', 'ㅓㅣ': 'ㅔ',
     'ㅑㅣ': 'ㅒ', 'ㅕㅣ': 'ㅖ',
     'ㅠㅣ': 'ㅜㅓ',
-    'ㄱㄱ': 'ㅋ', 'ㅋㄱ': 'ㄲ', 'ㄲㄱ': 'ㄱ',
-    'ㄴㄴ': 'ㄹ', 'ㄹㄴ': 'ㄴ',
-    'ㄷㄷ': 'ㅌ', 'ㅌㄷ': 'ㄸ', 'ㄸㄷ': 'ㄷ',
-    'ㅂㅂ': 'ㅍ', 'ㅍㅂ': 'ㅃ', 'ㅃㅂ': 'ㅂ',
-    'ㅅㅅ': 'ㅎ', 'ㅎㅅ': 'ㅆ', 'ㅆㅅ': 'ㅅ',
-    'ㅈㅈ': 'ㅊ', 'ㅊㅈ': 'ㅉ', 'ㅉㅈ': 'ㅈ',
-    '..': ',', ',.': '.',
-    'ㅇㅇ': 'ㅁ', 'ㅁㅇ': 'ㅇ',
-    '??': '!', '!?': '?'
+    // normal layout
+    'ㄱㄱㅋ': 'ㅋ', 'ㅋㄱㅋ': 'ㄲ', 'ㄲㄱㅋ': 'ㄱ',
+    'ㄴㄴㄹ': 'ㄹ', 'ㄹㄴㄹ': 'ㄴ',
+    'ㄷㄷㅌ': 'ㅌ', 'ㅌㄷㅌ': 'ㄸ', 'ㄸㄷㅌ': 'ㄷ',
+    'ㅂㅂㅍ': 'ㅍ', 'ㅍㅂㅍ': 'ㅃ', 'ㅃㅂㅍ': 'ㅂ',
+    'ㅅㅅㅎ': 'ㅎ', 'ㅎㅅㅎ': 'ㅆ', 'ㅆㅅㅎ': 'ㅅ',
+    'ㅈㅈㅊ': 'ㅊ', 'ㅊㅈㅊ': 'ㅉ', 'ㅉㅈㅊ': 'ㅈ',
+    'ㅇㅇㅁ': 'ㅁ', 'ㅁㅇㅁ': 'ㅇ',
+    // cheonjiin plus
+    'ㅋㅋ': 'ㄲ', 'ㄲㅋ': 'ㅋ',
+    'ㅌㅌ': 'ㄸ', 'ㄸㅌ': 'ㅌ',
+    'ㅍㅍ': 'ㅃ', 'ㅃㅍ': 'ㅍ',
+    'ㅎㅎ': 'ㅆ', 'ㅆㅎ': 'ㅎ',
+    'ㅊㅊ': 'ㅉ', 'ㅉㅊ': 'ㅊ',
+    '..,': ',', ',.,': '.',
+    '??!': '!', '!?!': '?'
 };
 
 // To prevent cutting preedit when choosing the second jong
-var combinable_jong_groups = {
-'ㄱㅅ': null,
-'ㄴㅈ': null,
-'ㄴㅅ': null,
-'ㄹㄱ': null,
-'ㄹㅇ': null,
-'ㄹㅂ': null,
-'ㄹㅅ': null,
-'ㄹㄷ': null,
-'ㅂㅅ': null
-};
+var combinable_jong = [
+    'ㄱㅅㅎ',
+    'ㄴㅈㅊ',
+    'ㄴㅅㅎ',
+    'ㄹㄱㅋ',
+    'ㄹㅇㅁ',
+    'ㄹㅂㅍ',
+    'ㄹㅅㅎ',
+    'ㄹㄷㅌ',
+    'ㅂㅅㅎ',
+    'ㄱㅅ',
+    'ㄴㅈ',
+    'ㄴㅎ',
+    'ㄹㄱ',
+    'ㄹㅁ',
+    'ㄹㅂ',
+    'ㄹㅅ',
+    'ㄹㅌ',
+    'ㄹㅍ',
+    'ㄹㅎ',
+    'ㅂㅅ'
+];
+
+function _makeHash(array){
+    var length = array.length, hash = {};
+    for (var i = 0; i < length; i++) {
+        if(array[i]) {
+            hash[array[i]] = i;
+        }
+    }
+    return hash;
+}
+
+var combinable_jong_groups = _makeHash(combinable_jong);
+var ko_cheonjiin_map = _makeHash(ko_cheonjiin_arr);
 
 function _mergePrev(arr) {
     var str = arr.join('');
@@ -103,17 +137,12 @@ function _isCombinableGroup(prev, key) {
 
 function process(key) {
     if (inputQ.length == 0) {
-        inputQ.push(key);
-    /*} else if (key == '?' || key == '.') {
-        if (prevKey != key) {
-            _flushQ();
-        }
-        */
+        inputQ.push(key.charAt(0));
     } else {
         var merged = _mergePrev([inputQ.pop(), key]);
         inputQ.push(merged[0]);
         if (merged.length == 2) {
-            inputQ.push(merged[1]);
+            inputQ.push(merged[1].charAt(0));
         }
         _updateBlock(key);
     }

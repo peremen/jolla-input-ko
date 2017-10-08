@@ -67,6 +67,8 @@ KeyboardLayout {
                      :  geometry.keyHeightPortrait * 4
 
     KeyboardRow {
+        separateButtonSizes: true
+
         KoArrowKey {
             direction: "left"
             separator: SeparatorState.VisibleSeparator
@@ -77,7 +79,7 @@ KeyboardLayout {
         KoTenKey { caption: "ㅡ"; captionShifted: "3"; symView: "/"; symView2: "$" }
         KoTenKey {
             enabled: Silica.Clipboard.hasText
-            separator: SeparatorState.HiddenSeparator
+            separator: SeparatorState.VisibleSeparator
             showPopper: false
             opacity: enabled ? (pressed ? 0.6 : 1.0)
             : 0.3
@@ -97,9 +99,12 @@ KeyboardLayout {
             separator: SeparatorState.VisibleSeparator
             implicitWidth: main.width / 5
         }
-        KoTenKey { caption: "ㄱㅋ"; captionShifted: "4"; symView: "<"; symView2: "[" }
-        KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
-        KoTenKey { caption: "ㄷㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
+        KoTenKey { plusMode: true; caption: "ㄱ"; captionShifted: "4"; symView: "<"; symView2: "["; accents:"ㄲ"; }
+        KoTenKey { plusMode: true; caption: "ㅋ"; captionShifted: "4"; symView: "<"; symView2: "[" }
+        KoTenKey { plusMode: true; caption: "ㄴ"; captionShifted: "5"; symView: ">"; symView2: "]" }
+        KoTenKey { plusMode: true; caption: "ㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
+        KoTenKey { plusMode: true; caption: "ㄷ"; captionShifted: "6"; symView: "@"; symView2: "₩"; accents:"ㄸ"; }
+        KoTenKey { plusMode: true; caption: "ㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
@@ -112,9 +117,12 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { caption: "ㅂㅍ"; captionShifted: "7"; symView: "#"; symView2: "^" }
-        KoTenKey { caption: "ㅅㅎ"; captionShifted: "8"; symView: "+"; symView2: "=" }
-        KoTenKey { caption: "ㅈㅊ"; captionShifted: "9"; symView: "-"; symView2: "_" }
+        KoTenKey { plusMode: true; caption: "ㅂ"; captionShifted: "7"; symView: "#"; symView2: "^"; accents: 'ㅃ' }
+        KoTenKey { plusMode: true; caption: "ㅍ"; captionShifted: "7"; symView: "#"; symView2: "^" }
+        KoTenKey { plusMode: true; caption: "ㅅ"; captionShifted: "8"; symView: "+"; symView2: "="; accents: 'ㅆ' }
+        KoTenKey { plusMode: true; caption: "ㅎ"; captionShifted: "8"; symView: "+"; symView2: "=" }
+        KoTenKey { plusMode: true; caption: "ㅈ"; captionShifted: "9"; symView: "-"; symView2: "_"; accents:'ㅉ' }
+        KoTenKey { plusMode: true; caption: "ㅊ"; captionShifted: "9"; symView: "-"; symView2: "_" }
         BackspaceKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
@@ -128,9 +136,12 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { caption: ".,"; captionShifted: "*"; symView: ":"; symView2: ";" }
-        KoTenKey { caption: "ㅇㅁ"; captionShifted: "0"; symView: "&"; symView2: "~" }
-        KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
+        KoTenKey { plusMode: true; caption: "."; captionShifted: "*"; symView: ":"; symView2: ";" }
+        KoTenKey { plusMode: true; caption: ","; captionShifted: "*"; symView: ":"; symView2: ";" }
+        KoTenKey { plusMode: true; caption: "ㅇ"; captionShifted: "0"; symView: "&"; symView2: "~" }
+        KoTenKey { plusMode: true; caption: "ㅁ"; captionShifted: "0"; symView: "&"; symView2: "~" }
+        KoTenKey { plusMode: true; caption: "?"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
+        KoTenKey { plusMode: true; caption: "!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
         EnterKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
