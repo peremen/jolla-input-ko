@@ -26,7 +26,9 @@ import "../.."
 CharacterKey {
     // For cheonjiin plus layout with separate buttons for jaum
     property bool plusMode: false
-    height: geometry.keyHeightPortrait
+    property bool plusDouble: false
+    height: portraitMode == false ? geometry.keyHeightLandscape
+                     :  geometry.keyHeightPortrait
     separator: SeparatorState.VisibleSeparator
-    implicitWidth: plusMode ? main.width / 10 : main.width / 5
+    implicitWidth: plusMode ? main.width / 8 : main.width / (plusDouble ? 4 : 5)
 }
