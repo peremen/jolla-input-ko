@@ -27,8 +27,9 @@ CharacterKey {
     // For cheonjiin plus layout with separate buttons for jaum
     property bool plusMode: false
     property bool plusDouble: false
+    property int widthDiv: plusMode ? 8 : plusDouble ? 4 : 5
     height: portraitMode == false ? geometry.keyHeightLandscape
                      :  geometry.keyHeightPortrait
     separator: SeparatorState.VisibleSeparator
-    implicitWidth: plusMode ? main.width / 8 : main.width / (plusDouble ? 4 : 5)
+    implicitWidth: main.width / widthDiv
 }

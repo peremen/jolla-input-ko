@@ -97,10 +97,7 @@ KeyboardLayout {
         KoTenKey { plusMode: true; caption: "ㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
         KoTenKey { plusMode: true; caption: "ㄷ"; captionShifted: "6"; symView: "@"; symView2: "₩"; accents:"ㄸ"; }
         KoTenKey { plusMode: true; caption: "ㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
-        SpacebarKey {
-            implicitWidth: main.width / 8
-            height: geometry.keyHeightPortrait
-        }
+        KoTenKey { plusMode: true; caption: "?!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
     }
 
     KeyboardRow {
@@ -123,23 +120,26 @@ KeyboardLayout {
         }
     }
 
-    KeyboardRow {
-        separateButtonSizes: true
+    Row {
+        //separateButtonSizes: true
 
         SymbolKey {
-            caption: keyboard.inSymView ? "한글" : "기호" // symbols/hangul
+            caption: keyboard.inSymView ? "가" : "#" // symbols/hangul
             implicitWidth: main.width / 8
             height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { plusMode: true; caption: "."; captionShifted: "*"; symView: ":"; symView2: ";" }
         KoTenKey { plusMode: true; caption: ","; captionShifted: "*"; symView: ":"; symView2: ";" }
+        KoTenKey { plusMode: true; caption: "."; captionShifted: "*"; symView: ":"; symView2: ";" }
         KoTenKey { plusMode: true; caption: "ㅇ"; captionShifted: "0"; symView: "&"; symView2: "~" }
         KoTenKey { plusMode: true; caption: "ㅁ"; captionShifted: "0"; symView: "&"; symView2: "~" }
-        KoTenKey { plusMode: true; caption: "?"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
-        KoTenKey { plusMode: true; caption: "!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
+        SpacebarKey {
+            implicitWidth: main.width * 9 / 40
+            height: geometry.keyHeightPortrait
+            separator: SeparatorState.VisibleSeparator
+        }
         EnterKey {
-            implicitWidth: main.width / 8
+            implicitWidth: main.width * 3 / 20
             height: geometry.keyHeightPortrait
         }
     }
