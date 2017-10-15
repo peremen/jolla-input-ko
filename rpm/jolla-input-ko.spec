@@ -1,6 +1,6 @@
 Name: dotdanbae
 Version: 0.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
 Source: %{name}-%{version}.tar.gz
@@ -11,7 +11,7 @@ Requires:   jolla-xt9
 
 %description
 Dotdanbae is Korean input method for Sailfish OS.
-This app provides 2-set, Naratgeul layout.
+This app provides 2-set, Naratgeul, Cheonjiin layout.
 
 The name stands for sailboat in Korean.
 
@@ -51,6 +51,9 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
+* Sun Oct 15 2017 Shinjo Park <me@peremen.name> 0.4-2
+- Revise keys of Naratgeul layout
+
 * Fri Sep 29 2017 Topias Vainio <toxip@disroot.org> 0.4
 - Added cheonjiin layout
 

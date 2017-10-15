@@ -48,7 +48,9 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0 as Silica
+import com.jolla.keyboard 1.0
 import ".."
+import "ko_common"
 
 KeyboardLayout {
     id: main
@@ -61,9 +63,18 @@ KeyboardLayout {
         keyboard.autocaps = false
     }
     
+    height: portraitMode == false ? geometry.keyHeightLandscape * 4
+                     :  geometry.keyHeightPortrait * 4
+
     KeyboardRow {
-        CharacterKey {
+        ContextAwareCommaKey {
             implicitWidth: main.width / 5
+            height: geometry.keyHeightPortrait
+        }
+        KoTenKey { caption: "ㄱ"; captionShifted: "1"; symView: "("; symView2: "{"; }
+        KoTenKey { caption: "ㄴ"; captionShifted: "2"; symView: ")"; symView2: "}" }
+        KoTenKey { caption: "ㅏㅓ"; captionShifted: "3"; symView: "!"; symView2: "$" }
+        KoTenKey {
             height: geometry.keyHeightPortrait
             enabled: Silica.Clipboard.hasText
             opacity: enabled ? (pressed ? 0.6 : 1.0)
@@ -76,80 +87,16 @@ KeyboardLayout {
                         + (parent.pressed ? Silica.Theme.highlightColor : Silica.Theme.primaryColor)
             }
         }
-        CharacterKey {
-            caption: "ㄱ"; captionShifted: "1"; symView: "("; symView2: "{"; 
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㄴ"; captionShifted: "2"; symView: ")"; symView2: "}"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅏㅓ"; captionShifted: "3"; symView: "!"; symView2: "$"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        SymbolKey {
-            caption: keyboard.inSymView ? "한글" : "기호" // symbols/hangul
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-            // separator: false
-        }
     }
 
     KeyboardRow {
-        ContextAwareCommaKey {
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㄹ"; captionShifted: "4"; symView: "<"; symView2: "["
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅁ"; captionShifted: "5"; symView: ">"; symView2: "]"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅗㅜ"; captionShifted: "6"; symView: "?"; symView2: "₩"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
+        KoTenKey { caption: "."; captionShifted: "."; symView: "."; symView2: "." }
+        KoTenKey { caption: "ㄹ"; captionShifted: "4"; symView: "<"; symView2: "[" }
+        KoTenKey { caption: "ㅁ"; captionShifted: "5"; symView: ">"; symView2: "]" }
+        KoTenKey { caption: "ㅗㅜ"; captionShifted: "6"; symView: "?"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
-        }
-    }
-
-    KeyboardRow {
-        CharacterKey {
-            caption: "."; captionShifted: "."; symView: "."; symView2: "."
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅅ"; captionShifted: "7"; symView: "#"; symView2: "^"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅇ"; captionShifted: "8"; symView: "+"; symView2: "="
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        CharacterKey {
-            caption: "ㅣ"; captionShifted: "9"; symView: "-"; symView2: "_"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
-        BackspaceKey {
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-            separator: false
         }
     }
 
@@ -158,21 +105,26 @@ KeyboardLayout {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
         }
-        CharacterKey {
-            caption: "획추가"; captionShifted: "*"; symView: "@"; symView2: "\""
+        KoTenKey { caption: "ㅅ"; captionShifted: "7"; symView: "#"; symView2: "^" }
+        KoTenKey { caption: "ㅇ"; captionShifted: "8"; symView: "+"; symView2: "=" }
+        KoTenKey { caption: "ㅣ"; captionShifted: "9"; symView: "-"; symView2: "_" }
+        BackspaceKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
+            separator: false
         }
-        CharacterKey {
-            caption: "ㅡ"; captionShifted: "0"; symView: "&"; symView2: "~" 
+    }
+
+    KeyboardRow {
+        SymbolKey {
+            caption: keyboard.inSymView ? "한글" : "기호" // symbols/hangul
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
+            // separator: false
         }
-        CharacterKey { 
-            caption: "쌍자음"; captionShifted: "#"; symView: ":"; symView2: ";"
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
+        KoTenKey { caption: "획추가"; captionShifted: "*"; symView: "@"; symView2: "\"" }
+        KoTenKey { caption: "ㅡ"; captionShifted: "0"; symView: "&"; symView2: "~" }
+        KoTenKey { caption: "쌍자음"; captionShifted: "#"; symView: ":"; symView2: ";" }
         EnterKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
