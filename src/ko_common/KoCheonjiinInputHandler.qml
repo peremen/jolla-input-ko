@@ -47,7 +47,7 @@ InputHandler {
         keyboard.expandedPaste = false
 
         if (pressedKey.key === Qt.Key_Backspace) {
-            // If backspace is not handled by libhangul, forward to default handler
+            // If backspace is not handled by Cheonjiin handler, forward to default handler
             handled = KoCheonjiinHandler.backspace()
             if (handled) {
                 updateString()

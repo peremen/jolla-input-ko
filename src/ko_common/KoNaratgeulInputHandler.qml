@@ -37,7 +37,7 @@ InputHandler {
         keyboard.expandedPaste = false
 
         if (pressedKey.key === Qt.Key_Backspace) {
-            // If backspace is not handled by libhangul, forward to default handler
+            // If backspace is not handled by Naratgeul handler, forward to default handler
             handled = KoNaratgeulHandler.backspace()
             if (handled) {
                 updateString()
