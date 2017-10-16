@@ -1,6 +1,6 @@
 Name: dotdanbae
-Version: 0.4
-Release: 2%{?dist}
+Version: 0.5
+Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
 Source: %{name}-%{version}.tar.gz
@@ -39,11 +39,13 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_2set.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_naratgeul.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin_plus.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonjiinInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoPasteKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
@@ -51,6 +53,10 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
+* Sun Oct 15 2017 Topias Vainio <toxip@disroot.org> 0.5
+- Added cheonjiin plus layout
+- Improved paste key in cheonjiin and naratgeul
+
 * Sun Oct 15 2017 Shinjo Park <me@peremen.name> 0.4-2
 - Revise keys of Naratgeul layout
 

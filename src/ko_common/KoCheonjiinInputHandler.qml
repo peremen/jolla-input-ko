@@ -67,7 +67,7 @@ InputHandler {
                 flush()
                 return false
             }
-            handled = KoCheonjiinHandler.process(KoCheonjiinHandler.ko_cheonjiin_map[pressedKey.text])
+            handled = KoCheonjiinHandler.process(pressedKey.text)
             updateString()
             // No case in Hangul: always reset shift status
             if (keyboard.shiftState !== ShiftState.LockedShift) {

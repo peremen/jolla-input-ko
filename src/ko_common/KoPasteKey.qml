@@ -20,16 +20,34 @@
  */
 
 import QtQuick 2.0
+import Sailfish.Silica 1.0
 import com.jolla.keyboard 1.0
 import "../.."
 
-CharacterKey {
-    // For cheonjiin plus layout with separate buttons for jaum
-    property bool plusMode: false
-    property bool plusDouble: false
-    property int widthDiv: plusMode ? 8 : plusDouble ? 4 : 5
+PasteButtonBase {
+    id: pasteContainer
+    property int separator: SeparatorState.HiddenSeparator
+    property bool implicitSeparator: true // set by layouting
+
+    enabled: Clipboard.hasText
     height: portraitMode == false ? geometry.keyHeightLandscape
-                     :  geometry.keyHeightPortrait
-    separator: SeparatorState.VisibleSeparator
-    implicitWidth: main.width / widthDiv
+                                  : geometry.keyHeightPortrait
+
+    KeySeparator {
+        visible: (separator === SeparatorState.AutomaticSeparator && implicitSeparator)
+                 || separator === SeparatorState.VisibleSeparator
+    }
+
+    Image {
+        id: pasteIcon
+        opacity: pasteContainer.enabled ? (pasteContainer.pressed ? 0.6 : 1.0) : 0.3
+        anchors.centerIn: parent
+        source: "image://theme/icon-m-clipboard?"
+        + (parent.pressed ? Theme.highlightColor : Theme.primaryColor)
+    }
+
+    onClicked: {
+        MInputMethodQuick.sendCommit(Clipboard.text)
+        keyboard.expandedPaste = false
+    }
 }
