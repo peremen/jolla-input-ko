@@ -67,23 +67,20 @@ KeyboardLayout {
                      :  geometry.keyHeightPortrait * 4
 
     Row {
-        ContextAwareCommaKey {
-            implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
-        }
+        KoTenKey { caption: ","; captionShifted: ","; symView: "!"; symView2: "\\"; }
         KoTenKey { caption: "ㄱ"; captionShifted: "1"; symView: "("; symView2: "{"; }
         KoTenKey { caption: "ㄴ"; captionShifted: "2"; symView: ")"; symView2: "}" }
-        KoTenKey { caption: "ㅏㅓ"; captionShifted: "3"; symView: "!"; symView2: "$" }
+        KoTenKey { caption: "ㅏㅓ"; captionShifted: "3"; symView: "/"; symView2: "$" }
         KoPasteKey {
             width: main.width / 5
         }
     }
 
     KeyboardRow {
-        KoTenKey { caption: "."; captionShifted: "."; symView: "."; symView2: "." }
+        KoTenKey { caption: "."; captionShifted: "."; symView: "?"; symView2: "%" }
         KoTenKey { caption: "ㄹ"; captionShifted: "4"; symView: "<"; symView2: "[" }
         KoTenKey { caption: "ㅁ"; captionShifted: "5"; symView: ">"; symView2: "]" }
-        KoTenKey { caption: "ㅗㅜ"; captionShifted: "6"; symView: "?"; symView2: "₩" }
+        KoTenKey { caption: "ㅗㅜ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
@@ -112,9 +109,9 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
             // separator: false
         }
-        KoTenKey { caption: "획추가"; captionShifted: "*"; symView: "@"; symView2: "\"" }
-        KoTenKey { caption: "ㅡ"; captionShifted: "0"; symView: "&"; symView2: "~" }
-        KoTenKey { caption: "쌍자음"; captionShifted: "#"; symView: ":"; symView2: ";" }
+        KoTenKey { caption: "획추가"; captionShifted: "*"; symView: ":"; symView2: ";" }
+        KoTenKey { caption: "ㅡ"; captionShifted: "0"; symView: "~"; symView2: "&" }
+        KoTenKey { caption: "쌍자음"; captionShifted: "#"; symView: "\""; symView2: "\'" }
         EnterKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait

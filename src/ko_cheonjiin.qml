@@ -119,8 +119,8 @@ KeyboardLayout {
             separator: SeparatorState.VisibleSeparator
         }
         KoTenKey { caption: ",."; captionShifted: "*"; symView: ":"; symView2: ";" }
-        KoTenKey { caption: "ㅇㅁ"; captionShifted: "0"; symView: "&"; symView2: "~" }
-        KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
+        KoTenKey { caption: "ㅇㅁ"; captionShifted: "0"; symView: "~"; symView2: "&" }
+        KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\""; symView2: "\'" }
         EnterKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
