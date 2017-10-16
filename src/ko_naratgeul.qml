@@ -66,7 +66,7 @@ KeyboardLayout {
     height: portraitMode == false ? geometry.keyHeightLandscape * 4
                      :  geometry.keyHeightPortrait * 4
 
-    KeyboardRow {
+    Row {
         ContextAwareCommaKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
