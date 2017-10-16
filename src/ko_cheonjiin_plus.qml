@@ -127,7 +127,7 @@ KeyboardLayout {
         SymbolKey {
             caption: keyboard.inSymView ? "가" : "#" // symbols/hangul
             implicitWidth: main.width / 8
-            height: geometry.keyHeightPortrait
+            height: portraitMode == true ? geometry.keyHeightPortrait : geometry.keyHeightLandscape
             separator: SeparatorState.VisibleSeparator
         }
         KoTenKey { plusMode: true; caption: ","; captionShifted: "+"; symView: ":"; symView2: ";" }
@@ -136,12 +136,12 @@ KeyboardLayout {
         KoTenKey { plusMode: true; caption: "ㅁ"; captionShifted: "0"; symView: "0"; symView2: "§" }
         SpacebarKey {
             implicitWidth: main.width * 9 / 40
-            height: geometry.keyHeightPortrait
+            height: portraitMode == true ? geometry.keyHeightPortrait : geometry.keyHeightLandscape
             separator: SeparatorState.VisibleSeparator
         }
         EnterKey {
             implicitWidth: main.width * 3 / 20
-            height: geometry.keyHeightPortrait
+            height: portraitMode == true ? geometry.keyHeightPortrait : geometry.keyHeightLandscape
         }
     }
 }
