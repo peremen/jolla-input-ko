@@ -100,7 +100,7 @@ KeyboardLayout {
         KoTenKey { plusMode: true; caption: "ㄹ"; captionShifted: "5"; symView: "4"; symView2: "₩" }
         KoTenKey { plusMode: true; caption: "ㄷ"; captionShifted: "ㄸ"; symView: "5"; symView2: "¥"; accents:"ㄸ"; }
         KoTenKey { plusMode: true; caption: "ㅌ"; captionShifted: "6"; symView: "6"; symView2: "₹" }
-        KoTenKey { plusMode: true; caption: "?!"; captionShifted: "#"; symView: "\""; symView2: "\'" }
+        KoTenKey { plusMode: true; caption: "?!"; captionShifted: "#"; symView: "?"; symView2: "!" }
     }
 
     KeyboardRow {
@@ -130,9 +130,9 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { plusMode: true; caption: ","; captionShifted: "+"; symView: ";"; symView2: ";" }
-        KoTenKey { plusMode: true; caption: "."; captionShifted: "*"; symView: ":"; symView2: ";" }
-        KoTenKey { plusMode: true; caption: "ㅇ"; captionShifted: "~"; symView: "~"; symView2: "&" }
+        KoTenKey { plusMode: true; caption: ","; captionShifted: "+"; symView: ":"; symView2: ";" }
+        KoTenKey { plusMode: true; caption: "."; captionShifted: "*"; symView: "~"; symView2: "&" }
+        KoTenKey { plusMode: true; caption: "ㅇ"; captionShifted: "~"; symView: "\""; symView2: "\'" }
         KoTenKey { plusMode: true; caption: "ㅁ"; captionShifted: "0"; symView: "0"; symView2: "§" }
         SpacebarKey {
             implicitWidth: main.width * 9 / 40
