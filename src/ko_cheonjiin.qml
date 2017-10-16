@@ -70,8 +70,10 @@ KeyboardLayout {
         KoArrowKey {
             direction: "left"
             separator: SeparatorState.VisibleSeparator
-            implicitWidth: main.width / 5
+            implicitWidth: attributes.inSymView ? 0 : main.width / 5
+            visible: !attributes.inSymView
         }
+        KoTenKey { widthDiv: attributes.inSymView ? 5 : 0; symView: "!"; symView2: "\\"; visible: attributes.inSymView}
         KoTenKey { caption: "ㅣ"; captionShifted: "1"; symView: "("; symView2: "{"; }
         KoTenKey { caption: "ㆍ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { caption: "ㅡ"; captionShifted: "3"; symView: "/"; symView2: "$" }
@@ -81,18 +83,20 @@ KeyboardLayout {
         }
     }
 
-    KeyboardRow {
+    Row {
         KoArrowKey {
             direction: "right"
             separator: SeparatorState.VisibleSeparator
-            implicitWidth: main.width / 5
+            implicitWidth: attributes.inSymView ? 0 : main.width / 5
+            visible: !attributes.inSymView
         }
+        KoTenKey { widthDiv: attributes.inSymView ? 5 : 0; symView: "?"; symView2: "%"; visible: attributes.inSymView}
         KoTenKey { caption: "ㄱㅋ"; captionShifted: "4"; symView: "<"; symView2: "[" }
         KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
         KoTenKey { caption: "ㄷㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
+            height: portraitMode == true ? geometry.keyHeightPortrait : geometry.keyHeightLandscape
         }
     }
 
@@ -118,9 +122,9 @@ KeyboardLayout {
             height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { caption: ".,"; captionShifted: "*"; symView: ":"; symView2: ";" }
-        KoTenKey { caption: "ㅇㅁ"; captionShifted: "0"; symView: "&"; symView2: "~" }
-        KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\'"; symView2: "\"" }
+        KoTenKey { caption: ",."; captionShifted: "*"; symView: ":"; symView2: ";" }
+        KoTenKey { caption: "ㅇㅁ"; captionShifted: "0"; symView: "~"; symView2: "&" }
+        KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\""; symView2: "\'" }
         EnterKey {
             implicitWidth: main.width / 5
             height: geometry.keyHeightPortrait
