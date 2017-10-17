@@ -67,8 +67,14 @@ KeyboardLayout {
         keyboard.autocaps = false
     }
 
+    Connections {
+        target: keyboard
+        // needed to make the extra symbol buttons to appear and disappear
+        onInSymViewChanged: updateSizes()
+    }
+
     KeyboardRow {
-        separateButtonSizes: attributes.inSymView
+        separateButtonSizes: !keyboard.inSymView
         splitIndex: 4
 
         CharacterKey { caption: "ㅂ"; captionShifted: "ㅃ"; symView: "1"; symView2: "€"; accents: "ㅃ" }
@@ -77,14 +83,14 @@ KeyboardLayout {
         CharacterKey { caption: "ㄱ"; captionShifted: "ㄲ"; symView: "4"; symView2: "₩"; accents: "ㄲ" }
         CharacterKey { caption: "ㅅ"; captionShifted: "ㅆ"; symView: "5"; symView2: "₹"; accents: "ㅆ" }
         CharacterKey { caption: "ㅗ"; captionShifted: "ㅛ"; symView: "6"; symView2: "%" }
-        CharacterKey { active: attributes.inSymView;       symView: "7"; symView2: "<" }
-        CharacterKey { active: attributes.inSymView;       symView: "8"; symView2: ">" }
+        CharacterKey { active: keyboard.inSymView;       symView: "7"; symView2: "<" }
+        CharacterKey { active: keyboard.inSymView;       symView: "8"; symView2: ">" }
         CharacterKey { caption: "ㅐ"; captionShifted: "ㅒ"; symView: "9"; symView2: "["; accents: "ㅒ" }
         CharacterKey { caption: "ㅔ"; captionShifted: "ㅖ"; symView: "0"; symView2: "]"; accents: "ㅖ" }
     }
 
     KeyboardRow {
-        separateButtonSizes: attributes.inSymView
+        separateButtonSizes: !keyboard.inSymView
         splitIndex: 4
 
         CharacterKey { caption: "ㅁ"; captionShifted: "ㅁ"; symView: "*"; symView2: "`" }
@@ -92,25 +98,25 @@ KeyboardLayout {
         CharacterKey { caption: "ㅇ"; captionShifted: "ㅇ"; symView: "+"; symView2: "|" }
         CharacterKey { caption: "ㄹ"; captionShifted: "ㄹ"; symView: "-"; symView2: "_" }
         CharacterKey { caption: "ㅎ"; captionShifted: "ㅎ"; symView: "="; symView2: "§" }
-        CharacterKey { active: attributes.inSymView;       symView: "("; symView2: "{" }
+        CharacterKey { active: keyboard.inSymView;       symView: "("; symView2: "{" }
         CharacterKey { caption: "ㅓ"; captionShifted: "ㅕ"; symView: ")"; symView2: "}" }
         CharacterKey { caption: "ㅏ"; captionShifted: "ㅑ"; symView: "!"; symView2: "¡" }
         CharacterKey { caption: "ㅣ"; captionShifted: "ㅣ"; symView: "?"; symView2: "¿" }
     }
 
     KeyboardRow {
-        separateButtonSizes: attributes.inSymView
+        separateButtonSizes: !keyboard.inSymView
         splitIndex: 5
 
         ShiftKey {
-            implicitWidth: attributes.inSymView ? shiftKeyWidth : shiftKeyWidthNarrow
+            implicitWidth: keyboard.inSymView ? shiftKeyWidth : shiftKeyWidthNarrow
         }
 
         CharacterKey { caption: "ㅋ"; captionShifted: "ㅋ"; symView: "@"; symView2: "«" }
         CharacterKey { caption: "ㅌ"; captionShifted: "ㅌ"; symView: "&"; symView2: "»" }
         CharacterKey { caption: "ㅊ"; captionShifted: "ㅊ"; symView: "/"; symView2: "\"" }
         CharacterKey { caption: "ㅍ"; captionShifted: "ㅍ"; symView: "\\"; symView2: "“" }
-        CharacterKey { active: attributes.inSymView;       symView: "'"; symView2: "”" }
+        CharacterKey { active: keyboard.inSymView;       symView: "'"; symView2: "”" }
         CharacterKey { caption: "ㅜ"; captionShifted: "ㅠ"; symView: ";"; symView2: "„" }
         CharacterKey { caption: "ㅡ"; captionShifted: "ㅡ"; symView: ":"; symView2: "~" }
 
@@ -122,7 +128,6 @@ KeyboardLayout {
 
         SymbolKey {
             caption: keyboard.inSymView ? "한글" : "?123" // symbols/hangul
-            onPressedChanged: updateSizes()
         }
 
         ContextAwareCommaKey {}
