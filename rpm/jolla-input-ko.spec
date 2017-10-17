@@ -42,13 +42,11 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin_plus.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonNaratInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoPasteKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/cheonjiin_naratgeul.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
