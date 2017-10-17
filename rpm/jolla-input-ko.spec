@@ -51,7 +51,7 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
-* Sun Oct 17 2017 Topias Vainio <toxip@disroot.org> 0.5
+* Tue Oct 17 2017 Topias Vainio <toxip@disroot.org> 0.5
 - Added cheonjiin plus layout
 - Improved paste key in cheonjiin and naratgeul
 - Fix bug with vowels getting stuck in naratgeul
