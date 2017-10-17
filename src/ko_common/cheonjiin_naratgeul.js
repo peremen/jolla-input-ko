@@ -37,9 +37,12 @@ var ko_key_arr = [
     'ㅇ', 'ㅁ',
     'ㅏㅓ', 'ㅗㅜ',
     '획추가', '쌍자음',
+    'ㅏ', 'ㅓ', 'ㅗ', 'ㅜ', 'ㅐ', 'ㅔ',
 ];
 
-var merge_map = {
+var merge_handler = cheonjiin_naratgeul_map;
+
+var cheonjiin_naratgeul_map = {
     'ㅣㆍ': 'ㅏ', 'ㅡㅣ': 'ㅢ', 'ㆍㅣ': 'ㅓ', 'ㆍㅡ': 'ㅗ', 'ㅡㆍ': 'ㅜ', 'ㆍㆍ': '：',
     // if you press · three times it returns to single dot
     '：ㆍ': 'ㆍ', 'ㅑㆍ': 'ㅏ', 'ㅠㆍ': 'ㅜ',
@@ -81,6 +84,14 @@ var merge_map = {
     'ㅂ쌍자음': 'ㅃ', 'ㅃ쌍자음': 'ㅂ',
     'ㅅ쌍자음': 'ㅆ', 'ㅆ쌍자음': 'ㅅ',
     'ㅈ쌍자음': 'ㅉ', 'ㅉ쌍자음': 'ㅈ'
+};
+
+var simple_map = {
+    'ㄱㄱ': 'ㄲ', 'ㄷㄷ': 'ㄸ', 'ㅂㅂ': 'ㅃ',
+    'ㅅㅅ': 'ㅆ', 'ㅈㅈ': 'ㅉ',
+    'ㅏㅏ': 'ㅑ', 'ㅓㅓ': 'ㅕ',
+    'ㅗㅗ': 'ㅛ', 'ㅜㅜ': 'ㅠ',
+    'ㅐㅐ': 'ㅒ', 'ㅔㅔ': 'ㅖ'
 };
 
 // To prevent cutting preedit when choosing the second jong
@@ -137,8 +148,8 @@ var loopable_map = _makeHash(loopable);
 
 function _mergePrev(arr) {
     var str = arr.join('');
-    if (merge_map.hasOwnProperty(str)) {
-        return merge_map[str].split('');
+    if (merge_handler.hasOwnProperty(str)) {
+        return merge_handler[str].split('');
     }
     return arr;
 }
@@ -208,6 +219,15 @@ function backspace() {
 
 function isEmpty() {
     return inputQ.length == 0 ? true: false;
+}
+
+function init(mode) {
+    if (mode == 'simple') {
+        merge_handler = simple_map;
+    } else {
+        merge_handler = cheonjiin_naratgeul_map;
+    }
+    reset();
 }
 
 function reset() {
