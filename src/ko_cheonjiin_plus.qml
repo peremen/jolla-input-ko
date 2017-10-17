@@ -75,6 +75,8 @@ KeyboardLayout {
     }
 
     KeyboardRow {
+        separateButtonSizes: true;
+
         KoArrowKey {
             direction: "left"
             separator: SeparatorState.VisibleSeparator
