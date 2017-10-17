@@ -153,18 +153,13 @@ function _updateBlock(key) {
     var str = _mergeQ();
     var lastChar = str.slice(-1);
     var prev = inputQ[inputQ.length-2];
-    if (str.length > 1 && !_isCheon() && !_isCombinable(prev, key) && !_isLoopable(key)) {
+    if (str.length > 1 && lastChar != 'ㆍ' && lastChar != '：'
+                       && !_isCombinable(prev, key)
+                       && !_isLoopable(key)) {
         cstr = str.slice(0,-1);
         str = lastChar;
         inputQ = Hangul.h.d(str);
     }
-}
-
-function _isCheon(char) {
-    if (char == 'ㆍ' || char == '：') {
-        return true;
-    }
-    return false;
 }
 
 function _isCombinable(prev, key) {
