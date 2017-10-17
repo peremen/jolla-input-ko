@@ -68,7 +68,9 @@ KeyboardLayout {
     }
 
     KeyboardRow {
-        separateButtonSizes: true
+        separateButtonSizes: attributes.inSymView
+        splitIndex: 4
+
         CharacterKey { caption: "ㅂ"; captionShifted: "ㅃ"; symView: "1"; symView2: "€"; accents: "ㅃ" }
         CharacterKey { caption: "ㅈ"; captionShifted: "ㅉ"; symView: "2"; symView2: "£"; accents: "ㅉ" }
         CharacterKey { caption: "ㄷ"; captionShifted: "ㄸ"; symView: "3"; symView2: "$"; accents: "ㄸ" }
@@ -82,8 +84,8 @@ KeyboardLayout {
     }
 
     KeyboardRow {
-        separateButtonSizes: true
-        splitIndex: 5
+        separateButtonSizes: attributes.inSymView
+        splitIndex: 4
 
         CharacterKey { caption: "ㅁ"; captionShifted: "ㅁ"; symView: "*"; symView2: "`" }
         CharacterKey { caption: "ㄴ"; captionShifted: "ㄴ"; symView: "#"; symView2: "^" }
@@ -97,11 +99,11 @@ KeyboardLayout {
     }
 
     KeyboardRow {
-        separateButtonSizes: true
+        separateButtonSizes: attributes.inSymView
         splitIndex: 5
 
         ShiftKey {
-            implicitWidth: shiftKeyWidthNarrow
+            implicitWidth: attributes.inSymView ? shiftKeyWidth : shiftKeyWidthNarrow
         }
 
         CharacterKey { caption: "ㅋ"; captionShifted: "ㅋ"; symView: "@"; symView2: "«" }
