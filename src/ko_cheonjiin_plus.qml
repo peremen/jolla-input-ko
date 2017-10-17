@@ -68,21 +68,27 @@ KeyboardLayout {
     width: portraitMode == false ? geometry.keyboardWidthLandscape
                      : geometry.keyboardWidthPortrait
 
-    Row {
+    Connections {
+        target: keyboard
+        // needed to make the extra symbol buttons to appear and disappear
+        onInSymViewChanged: updateSizes()
+    }
+
+    KeyboardRow {
         KoArrowKey {
             direction: "left"
             separator: SeparatorState.VisibleSeparator
             implicitWidth: main.width / 8
         }
         KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅣ"; captionShifted: "1"; symView: "("; symView2: "{" }
-        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅣ"; captionShifted: "1"; symView: ")"; symView2: "}"; visible: attributes.inSymView; }
+        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅣ"; captionShifted: "1"; symView: ")"; symView2: "}"; active: keyboard.inSymView }
         KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㆍ"; captionShifted: "2"; symView: "/"; symView2: "\\" }
-        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㆍ"; captionShifted: "2"; symView: "1"; symView2: "$"; visible: attributes.inSymView;}
+        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㆍ"; captionShifted: "2"; symView: "1"; symView2: "$"; active: keyboard.inSymView }
         KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅡ"; captionShifted: "3"; symView: "2"; symView2: "£" }
-        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅡ"; captionShifted: "3"; symView: "3"; symView2: "€"; visible: attributes.inSymView;}
+        KoTenKey { widthDiv: attributes.inSymView ? 8 : 4; caption: "ㅡ"; captionShifted: "3"; symView: "3"; symView2: "€"; active: keyboard.inSymView }
         KoPasteKey {
             popupAnchor: 1
-            width: main.width / 8
+            implicitWidth: main.width / 8
         }
     }
 

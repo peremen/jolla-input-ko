@@ -28,6 +28,7 @@ PasteButtonBase {
     id: pasteContainer
     property int separator: SeparatorState.HiddenSeparator
     property bool implicitSeparator: true // set by layouting
+    property bool active: true
 
     enabled: Clipboard.hasText
     height: portraitMode == false ? geometry.keyHeightLandscape
