@@ -21,7 +21,6 @@
 
 .import "hangul.js" as Hangul;
 
-var max_preedit_len = 8;
 var inputQ = [];
 var prevKey = "";
 
