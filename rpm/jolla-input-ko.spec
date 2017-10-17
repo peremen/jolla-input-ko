@@ -42,20 +42,21 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin_plus.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoNaratgeulInputHandler.qml
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonjiinInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonNaratInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoPasteKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/2set_handler.js
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/naratgeul_handler.js
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/cheonjiin_handler.js
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/cheonjiin_naratgeul.js
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
-* Sun Oct 15 2017 Topias Vainio <toxip@disroot.org> 0.5
+* Sun Oct 17 2017 Topias Vainio <toxip@disroot.org> 0.5
 - Added cheonjiin plus layout
 - Improved paste key in cheonjiin and naratgeul
+- Fix bug with vowels getting stuck in naratgeul
+- Move to the same code base for naratgeul and cheonjiin handlers
+- Improved symbols layout in cheonjiin and naratgeul
 
 * Sun Oct 15 2017 Shinjo Park <me@peremen.name> 0.4-2
 - Revise keys of Naratgeul layout
