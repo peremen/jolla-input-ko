@@ -66,44 +66,50 @@ KeyboardLayout {
     height: portraitMode == false ? geometry.keyHeightLandscape * 4
                      :  geometry.keyHeightPortrait * 4
 
-    Row {
+    Connections {
+        target: keyboard
+        // needed to make the extra symbol buttons to appear and disappear
+        onInSymViewChanged: updateSizes()
+    }
+
+    KeyboardRow {
+        separateButtonSizes: true
+
         KoArrowKey {
             direction: "left"
             separator: SeparatorState.VisibleSeparator
-            implicitWidth: attributes.inSymView ? 0 : main.width / 5
-            visible: !attributes.inSymView
+            implicitWidth: main.width / 5
+            active: !keyboard.inSymView
         }
-        KoTenKey { widthDiv: attributes.inSymView ? 5 : 0; symView: "!"; symView2: "\\"; visible: attributes.inSymView}
-        KoTenKey { caption: "ㅣ"; captionShifted: "1"; symView: "("; symView2: "{"; }
+        KoTenKey { active: keyboard.inSymView;        symView: "!"; symView2: "\\" }
+        KoTenKey { caption: "ㅣ"; captionShifted: "1"; symView: "("; symView2: "{" }
         KoTenKey { caption: "ㆍ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { caption: "ㅡ"; captionShifted: "3"; symView: "/"; symView2: "$" }
         KoPasteKey {
             popupAnchor: 1
-            width: main.width / 5
+            implicitWidth: main.width / 5
         }
     }
 
-    Row {
+    KeyboardRow {
         KoArrowKey {
             direction: "right"
             separator: SeparatorState.VisibleSeparator
-            implicitWidth: attributes.inSymView ? 0 : main.width / 5
-            visible: !attributes.inSymView
+            implicitWidth: main.width / 5
+            active: !keyboard.inSymView
         }
-        KoTenKey { widthDiv: attributes.inSymView ? 5 : 0; symView: "?"; symView2: "%"; visible: attributes.inSymView}
+        KoTenKey { active: keyboard.inSymView;          symView: "?"; symView2: "%" }
         KoTenKey { caption: "ㄱㅋ"; captionShifted: "4"; symView: "<"; symView2: "[" }
         KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
         KoTenKey { caption: "ㄷㅌ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
-            height: portraitMode == true ? geometry.keyHeightPortrait : geometry.keyHeightLandscape
         }
     }
 
     KeyboardRow {
         ShiftKey {
             implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
         KoTenKey { caption: "ㅂㅍ"; captionShifted: "7"; symView: "#"; symView2: "^" }
@@ -111,7 +117,6 @@ KeyboardLayout {
         KoTenKey { caption: "ㅈㅊ"; captionShifted: "9"; symView: "-"; symView2: "_" }
         BackspaceKey {
             implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
         }
     }
 
@@ -119,7 +124,6 @@ KeyboardLayout {
         SymbolKey {
             caption: keyboard.inSymView ? "한글" : "기호" // symbols/hangul
             implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
             separator: SeparatorState.VisibleSeparator
         }
         KoTenKey { caption: ",."; captionShifted: "*"; symView: ":"; symView2: ";" }
@@ -127,7 +131,6 @@ KeyboardLayout {
         KoTenKey { caption: "?!"; captionShifted: "#"; symView: "\""; symView2: "\'" }
         EnterKey {
             implicitWidth: main.width / 5
-            height: geometry.keyHeightPortrait
         }
     }
 }
