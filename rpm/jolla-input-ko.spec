@@ -40,9 +40,11 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_naratgeul.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin_plus.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_simple.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonNaratInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoSimpleInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoPasteKey.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoTenKey.qml
@@ -51,8 +53,9 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
-* Tue Oct 17 2017 Topias Vainio <toxip@disroot.org> 0.5
+* Wed Oct 18 2017 Topias Vainio <toxip@disroot.org> 0.5
 - Added cheonjiin plus layout
+- Added single vowel layout
 - Improved paste key in cheonjiin and naratgeul
 - Fix bug with vowels getting stuck in naratgeul
 - Move to the same code base for naratgeul and cheonjiin handlers
