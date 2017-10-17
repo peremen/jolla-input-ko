@@ -59,10 +59,10 @@ FunctionKey {
                :  (direction === "right") ? "image://theme/icon-m-right" : "")
     icon.opacity: pressed ? 0.6 : 1
     repeat: true
-    key: ((direction === "up") ? Qt.Key_Up
-               :  (direction === "down") ? Qt.Key_Down
-               :  (direction === "left") ? Qt.Key_Left
-               :  (direction === "right") ? Qt.Key_Right : Qt.Key_Unknown)
+    key: ((direction === "up")    ? Qt.Key_Up
+       :  (direction === "down")  ? Qt.Key_Down
+       :  (direction === "left")  ? Qt.Key_Left
+       :  (direction === "right") ? Qt.Key_Right : Qt.Key_Unknown)
     implicitHeight: main.portraitMode == false ? geometry.keyHeightLandscape
                      :  geometry.keyHeightPortrait
     background.visible: false
