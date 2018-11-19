@@ -1,5 +1,5 @@
 Name: dotdanbae
-Version: 0.5
+Version: 0.5.1
 Release: 1%{?dist}
 Summary: Korean layout and input method for Sailfish OS
 License: GPLv2+
@@ -41,6 +41,7 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_cheonjiin_plus.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_simple.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_vega.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonNaratInputHandler.qml
@@ -53,6 +54,10 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/hangul.js
 
 %changelog
+* Mon Nov 19 2018 Topias Vainio <toxip@disroot.org> 0.5.1
+- Added VEGA layout
+- Changed to semantic versioning
+
 * Wed Oct 18 2017 Topias Vainio <toxip@disroot.org> 0.5
 - Added cheonjiin plus layout
 - Added single vowel layout
