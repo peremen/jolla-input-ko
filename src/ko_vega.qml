@@ -76,7 +76,7 @@ KeyboardLayout {
         separateButtonSizes: true
         
         KoTenKey { caption: "?!"; captionShifted: ","; symView: "!"; symView2: "\\"; }
-        KoTenKey { caption: "ㄱㅋ"; captionShifted: "1"; symView: "("; symView2: "{" }
+        KoTenKey { caption: "ㄱㅋ"; captionShifted: "1"; symView: "("; symView2: "{"; accents:"ㄱ"; }
         KoTenKey { caption: "ㅡㅣ"; captionShifted: "2"; symView: ")"; symView2: "}" }
         KoTenKey { caption: "ㅏㅑ"; captionShifted: "3"; symView: "/"; symView2: "$" }
         KoPasteKey {
@@ -87,8 +87,8 @@ KeyboardLayout {
 
     KeyboardRow {
         KoTenKey { caption: ",.";  captionShifted: "."; symView: "?"; symView2: "%" }
-        KoTenKey { caption: "ㄷㅌ"; captionShifted: "4"; symView: "<"; symView2: "[" }
-        KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]" }
+        KoTenKey { caption: "ㄷㅌ"; captionShifted: "4"; symView: "<"; symView2: "["; accents:"ㄷ"; }
+        KoTenKey { caption: "ㄴㄹ"; captionShifted: "5"; symView: ">"; symView2: "]"; accents:"ㄴ"; }
         KoTenKey { caption: "ㅓㅕ"; captionShifted: "6"; symView: "@"; symView2: "₩" }
         SpacebarKey {
             implicitWidth: main.width / 5
@@ -100,8 +100,8 @@ KeyboardLayout {
             implicitWidth: main.width / 5
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { caption: "ㅁㅅ"; captionShifted: "7"; symView: "#"; symView2: "^" }
-        KoTenKey { caption: "ㅂㅍ"; captionShifted: "8"; symView: "+"; symView2: "=" }
+        KoTenKey { caption: "ㅁㅅ"; captionShifted: "7"; symView: "#"; symView2: "^"; accents:"ㅁ"; }
+        KoTenKey { caption: "ㅂㅍ"; captionShifted: "8"; symView: "+"; symView2: "="; accents:"ㅂ"; }
         KoTenKey { caption: "ㅗㅛ"; captionShifted: "9"; symView: "-"; symView2: "_" }
         BackspaceKey {
             implicitWidth: main.width / 5
@@ -114,8 +114,8 @@ KeyboardLayout {
             implicitWidth: main.width / 5
             separator: SeparatorState.VisibleSeparator
         }
-        KoTenKey { caption: "ㅈㅊ"; captionShifted: "*"; symView: ":"; symView2: ";" }
-        KoTenKey { caption: "ㅇㅎ"; captionShifted: "0"; symView: "~"; symView2: "&" }
+        KoTenKey { caption: "ㅈㅊ"; captionShifted: "*"; symView: ":"; symView2: ";"; accents:"ㅈ"; }
+        KoTenKey { caption: "ㅇㅎ"; captionShifted: "0"; symView: "~"; symView2: "&"; accents:"ㅇ"; }
         KoTenKey { caption: "ㅜㅠ"; captionShifted: "#"; symView: "\""; symView2: "\'" }
         EnterKey {
             implicitWidth: main.width / 5
