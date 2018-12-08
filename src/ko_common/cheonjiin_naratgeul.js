@@ -42,9 +42,10 @@ var ko_key_arr = [
     'ㅡㅣ', 'ㅏㅑ', 'ㅓㅕ', 'ㅗㅛ', 'ㅜㅠ'    
 ];
 
-var merge_handler = cheonjiin_naratgeul_map;
+var merge_handler = twelvekey_map;
 
-var cheonjiin_naratgeul_map = {
+// Used for the twelvekey layouts cheonjiin, naratgeul and VEGA
+var twelvekey_map = {
     'ㅣㆍ': 'ㅏ', 'ㅡㅣ': 'ㅢ', 'ㆍㅣ': 'ㅓ', 'ㆍㅡ': 'ㅗ', 'ㅡㆍ': 'ㅜ', 'ㆍㆍ': '：',
     // if you press · three times it returns to single dot
     '：ㆍ': 'ㆍ', 'ㅑㆍ': 'ㅏ', 'ㅠㆍ': 'ㅜ',
@@ -98,6 +99,7 @@ var cheonjiin_naratgeul_map = {
     'ㅜㅜㅠ': 'ㅠ', 'ㅠㅜㅠ': 'ㅜ'
 };
 
+// For the simple vowel layout
 var simple_map = {
     'ㄱㄱ': 'ㄲ', 'ㄷㄷ': 'ㄸ', 'ㅂㅂ': 'ㅃ',
     'ㅅㅅ': 'ㅆ', 'ㅈㅈ': 'ㅉ',
@@ -108,6 +110,7 @@ var simple_map = {
 
 // To prevent cutting preedit when choosing the second jong
 var combinable_jong = [
+    // For cheonjiin layout
     'ㄱㅅㅎ',
     'ㄴㅈㅊ',
     'ㄴㅅㅎ',
@@ -117,6 +120,13 @@ var combinable_jong = [
     'ㄹㅅㅎ',
     'ㄹㄷㅌ',
     'ㅂㅅㅎ',
+    // For VEGA ㅁㅅ and ㅇㅎ keys
+    'ㄴㅇㅎ',
+    'ㄹㅇㅎ',
+    'ㅂㅁㅅ',
+    'ㄱㅁㅅ',
+    // I don't remember why these are here
+    // TODO: check if these are actually needed
     'ㄱㅅ',
     'ㄴㅈ',
     'ㄴㅎ',
@@ -130,7 +140,14 @@ var combinable_jong = [
     'ㅂㅅ'
 ];
 
+// To prevent cutting pre-edit in VEGA when choosing the second vowel
+var combinable_jung = [
+    'ㅗㅡㅣ',
+    'ㅜㅡㅣ'
+];
+
 var loopable = [
+    // cheonjiin
     'ㄱㅋ',
     'ㄴㄹ',
     'ㄷㅌ',
@@ -138,10 +155,12 @@ var loopable = [
     'ㅅㅎ',
     'ㅈㅊ',
     'ㅇㅁ',
+    // naratgeul
     'ㅏㅓ',
     'ㅗㅜ',
     '획추가',
     '쌍자음',
+    // VEGA
     'ㅁㅅ',
     'ㅇㅎ',
     'ㅡㅣ',
@@ -161,7 +180,8 @@ function _makeHash(array){
     return hash;
 }
 
-var combinable_jong_groups = _makeHash(combinable_jong);
+var combinable_jong_map = _makeHash(combinable_jong);
+var combinable_jung_map = _makeHash(combinable_jung);
 var ko_key_map = _makeHash(ko_key_arr);
 var loopable_map = _makeHash(loopable);
 
@@ -192,7 +212,8 @@ function _updateBlock(key) {
 }
 
 function _isCombinable(prev, key) {
-    if (combinable_jong_groups.hasOwnProperty(prev + key)) {
+    if (combinable_jong_map.hasOwnProperty(prev + key)
+        || combinable_jung_map.hasOwnProperty(prev + key)) {
         return true;
     }
     return false;
@@ -244,7 +265,7 @@ function init(mode) {
     if (mode == 'simple') {
         merge_handler = simple_map;
     } else {
-        merge_handler = cheonjiin_naratgeul_map;
+        merge_handler = twelvekey_map;
     }
     reset();
 }
