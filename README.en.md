@@ -14,7 +14,7 @@ The name comes from Korean word for sailboat.
 * 2-set layout, Danmoeum
 * Naratgeul
 * Cheonjiin 
-* Support for SKY Hangul is planned.
+* SKY (VEGA) Hangul
 
 ## Build and install
 There are no native code used in this input method. To install on your device,
