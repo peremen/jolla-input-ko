@@ -42,7 +42,7 @@ rm -rf %{buildroot}
 /usr/share/maliit/plugins/com/jolla/layouts/ko_simple.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_vega.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko.conf
-/usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoInputHandler.qml
+/usr/share/maliit/plugins/com/jolla/layouts/ko_common/Ko2SetInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoCheonNaratInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoSimpleInputHandler.qml
 /usr/share/maliit/plugins/com/jolla/layouts/ko_common/KoArrowKey.qml

@@ -128,7 +128,7 @@ function isEmpty() {
 }
 
 function process(k) {
-    // param k: key text from KoInputHandler, translated by qwerty map
+    // param k: key text from Ko2SetInputHandler, translated by qwerty map
     if (pstr.length == 0) ohiQ=Array(0,0,0,0,0,0);
     return ohiHangul2(k);
 }
