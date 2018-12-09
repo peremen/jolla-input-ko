@@ -7,7 +7,6 @@ Source: %{name}-%{version}.tar.gz
 BuildArch: noarch
 URL:    https://github.com/peremen/jolla-input-ko
 Requires:   jolla-keyboard
-Requires:   jolla-xt9
 
 %description
 Dotdanbae is Korean input method for Sailfish OS.
